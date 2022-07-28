@@ -1,0 +1,38 @@
+﻿@page
+@model Demo_CRUD.Pages.StudentsPage.IndexModel
+@{
+}
+
+<h2 class="text-center">List Students</h2>
+<a class="btn btn-success btn-sm mb-3" href="/Students/Create" >Add Student</a>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-secondary">
+            <th>ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Faculty</th>
+            <th>Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach(var item in Model.student_list)
+         {
+             <tr>
+                 <td>@item.id</td>
+                 <td>@item.fullname</td>
+                 <td>@item.email</td>
+                 <td>@item.phone</td>
+                 <td>@item.faculty</td>
+                 <td>@item.created_at</td>
+                 <td>
+                     <a class="btn btn-primary btn-sm" href="/Students/Update?id=@item.id">Update</a>
+                     <a class="btn btn-danger btn-sm" href="/Students/Delete?id=@item.id">Delete</a>                  
+                 </td>
+
+             </tr>
+         }
+    </tbody>
+</table>
